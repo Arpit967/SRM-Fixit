@@ -1,0 +1,191 @@
+/* Shared SRM-FixIt visual language, matched to the admin dashboard. */
+:root {
+  --white: #F6F1E7;
+  --blue: #AFCDE0;
+  --yellow: #F3D77B;
+  --red: #C73532;
+  --paper: #FCFAF5;
+  --ink: #22262f;
+  --muted: #6a6963;
+  --line: #E3DBC9;
+  --blue-soft: #E3EEF5;
+  --blue-deep: #2f5f80;
+  --yellow-soft: #FBF0C8;
+  --yellow-deep: #7a5c05;
+  --red-soft: #F8E1DF;
+  --radius: 14px;
+  --font: "Barlow", system-ui, sans-serif;
+  --display: "Bebas Neue", Impact, sans-serif;
+  --shadow: 0 1px 0 rgba(34,38,47,.04), 0 6px 18px -10px rgba(34,38,47,.22);
+}
+
+/* Scope the refreshed theme to the three requested entry pages. */
+.auth-page {
+  box-sizing: border-box;
+  min-height: 100vh;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: max(24px, env(safe-area-inset-top)) 20px max(32px, env(safe-area-inset-bottom));
+  background: var(--white);
+  color: var(--ink);
+  font: 400 17px/1.5 var(--font);
+}
+.auth-page *, .auth-page *::before, .auth-page *::after { box-sizing: border-box; }
+.auth-page h1 {
+  margin: 0 0 4px;
+  color: var(--ink);
+  font: 400 44px/1 var(--display);
+  letter-spacing: .035em;
+  animation: auth-rise .55s .12s both;
+}
+.auth-page h2 {
+  margin: 0 0 10px;
+  font: 400 30px/1 var(--display);
+  letter-spacing: .03em;
+}
+.auth-page .subtitle {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 18px;
+  animation: auth-rise .55s .2s both;
+}
+.auth-page .card {
+  margin: 20px 0 16px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  animation: auth-rise .5s .25s both;
+}
+.auth-page label {
+  display: block;
+  margin: 14px 0 6px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+.auth-page input,
+.auth-page select,
+.auth-page textarea {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  outline: 0;
+  background: #fff;
+  color: var(--ink);
+  font: 400 16px/1.4 var(--font);
+  transition: border-color .18s, box-shadow .18s, background .18s;
+}
+.auth-page input:focus,
+.auth-page select:focus,
+.auth-page textarea:focus {
+  border-color: var(--blue-deep);
+  box-shadow: 0 0 0 3px rgba(47,95,128,.15);
+}
+.auth-page input[readonly] { background: var(--blue-soft); }
+.auth-page input::placeholder { color: #8c8980; }
+.auth-page button {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 14px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--ink);
+  font: 700 16px/1.3 var(--font);
+  cursor: pointer;
+  transition: transform .15s, filter .15s, box-shadow .15s;
+}
+.auth-page button:hover { transform: translateY(-1px); filter: brightness(1.04); box-shadow: 0 5px 12px rgba(34,38,47,.12); }
+.auth-page button:active { transform: translateY(1px) scale(.985); }
+.auth-page button:focus-visible,
+.auth-page a:focus-visible { outline: 3px solid var(--blue-deep); outline-offset: 3px; }
+.auth-page button:disabled { opacity: .65; cursor: wait; transform: none; }
+.auth-page button.secondary {
+  background: var(--blue-soft);
+  color: var(--blue-deep);
+  box-shadow: inset 0 0 0 1px rgba(47,95,128,.18);
+}
+.auth-page p { color: var(--muted); }
+.auth-page #loginMsg,
+.auth-page #roleMsg,
+.auth-page #staffLoginMsg,
+.auth-page #developerLoginMsg { margin-top: 10px; }
+.auth-page .error { color: var(--red); font-size: 15px; font-weight: 600; }
+.auth-page .success { color: #397044; font-size: 15px; font-weight: 600; }
+.auth-page [hidden] { display: none !important; }
+.auth-page .developer-footer { margin-top: 30px; text-align: center; animation: auth-rise .5s .36s both; }
+.auth-page .developer-footer a { color: var(--muted); font-size: 11px; text-decoration: none; }
+.auth-page .developer-footer a:hover { color: var(--blue-deep); text-decoration: underline; }
+.auth-page .preview-links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; animation-delay: .3s; }
+.auth-page .preview-links > div { grid-column: 1 / -1; }
+.auth-page .preview-links h2 { margin: 0 0 3px; }
+.auth-page .preview-links p { margin: 0 0 5px; color: var(--muted); font-size: 14px; }
+.auth-page .preview-links .preview-kicker { margin-bottom: 2px; color: var(--blue-deep); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.auth-page .preview-button { display: flex; min-height: 46px; align-items: center; justify-content: center; padding: 10px 13px; border-radius: 999px; background: var(--yellow); color: var(--ink); font-size: 14px; font-weight: 700; text-align: center; text-decoration: none; transition: transform .15s, filter .15s, box-shadow .15s; }
+.auth-page .preview-button:hover { transform: translateY(-1px); filter: brightness(1.04); box-shadow: 0 5px 12px rgba(34,38,47,.12); }
+.auth-page .preview-button:active { transform: translateY(1px) scale(.985); }
+.auth-page .preview-button.secondary { background: var(--blue-soft); color: var(--blue-deep); box-shadow: inset 0 0 0 1px rgba(47,95,128,.18); }
+.auth-page .preview-shortcut { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin: 16px 0; }
+
+@keyframes auth-rise { from { opacity: 0; transform: translateY(14px); } }
+@keyframes auth-drop { from { opacity: 0; transform: translateY(-12px); } }
+@media (prefers-reduced-motion: reduce) {
+  .auth-page *, .auth-page *::before, .auth-page *::after {
+    animation-duration: .001ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+@media (max-width: 560px) {
+  .auth-page { padding-right: 14px; padding-left: 14px; }
+  .auth-page h1 { font-size: 38px; }
+  .auth-page .card { padding: 18px; border-radius: 16px; }
+  .auth-page .preview-links { grid-template-columns: 1fr; }
+  .auth-page .preview-links > div { grid-column: auto; }
+  .auth-page .preview-shortcut { grid-template-columns: 1fr; }
+}
+
+/* Existing shared components retained for the student ticket screen. */
+.ticket { border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 12px; display: flex; gap: 12px; background: var(--paper); box-shadow: var(--shadow); }
+.ticket img { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+.ticket-body { flex: 1; min-width: 0; }
+.ticket-meta { font-size: .9rem; color: var(--muted); margin: 2px 0; }
+.updates-section { margin: 20px 0; }
+.status-update { border-left: 4px solid var(--blue); background: var(--blue-soft); border-radius: 8px; padding: 12px; margin-bottom: 8px; }
+.possible-duplicate { color: var(--yellow-deep); background: var(--yellow-soft); border-radius: 8px; padding: 7px 10px; margin: 8px 0 2px; font-size: .85rem; font-weight: 600; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .75rem; font-weight: 700; text-transform: uppercase; }
+.badge-open { background: var(--red-soft); color: #9c2422; }
+.badge-in_progress { background: var(--yellow-soft); color: var(--yellow-deep); }
+.badge-resolved { background: var(--blue-soft); color: var(--blue-deep); }
+.badge-rejected { background: #E8E3D6; color: var(--muted); }
+.filters { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+.filters select { width: auto; }
+.assignment-label { margin-top: 10px; }
+.table-scroll { overflow-x: auto; }
+.analytics-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.analytics-table th, .analytics-table td { text-align: left; padding: 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.top-bar button { width: auto; margin-top: 0; }
+.topbar-actions { display: flex; gap: 8px; }
+.install-prompt { position: fixed; z-index: 10; right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); width: auto; min-height: 48px; padding: 12px 18px; border-radius: 999px; box-shadow: 0 4px 16px rgba(0,0,0,.25); }
+.install-help { border: 0; border-radius: 12px; padding: 20px; max-width: min(360px, calc(100vw - 32px)); }
+.install-help::backdrop { background: rgba(34,38,47,.55); }
+.install-help button { margin-top: 12px; }
+@media (max-width: 480px) {
+  .ticket { align-items: flex-start; }
+  .ticket img { width: 64px; height: 64px; }
+  .ticket-body { min-width: 0; overflow-wrap: anywhere; }
+  .filters select { width: 100%; min-height: 44px; }
+  .top-bar { gap: 12px; align-items: flex-start; }
+  .topbar-actions { gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+  .top-bar h1 { font-size: 1.2rem; }
+  .top-bar button { min-height: 44px; }
+}
